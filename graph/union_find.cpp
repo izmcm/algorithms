@@ -23,7 +23,7 @@ void unionSet(int a, int b){
 
 	if(a == b) return; // if a and b are in the same set
 
-	// connecting smaller set in the larger set
+	// connect the smallest set in the larger set
 	if(size[a] > size[b]) swap(a, b);
 	
 	// put a (smaller) in the b (larger) set
