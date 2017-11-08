@@ -10,7 +10,7 @@ bool check(int v, int c){
 	if(color[v] == -1){ // uncolored node
 		color[v] = c; 
   
-    	// coloring all neighbors nodes
+    		// coloring all neighbors nodes
 		for(int i = 0; i < graph[v].size(); i++){
 			if(!check(graph[v][i], 1 - c)) return false;	
 		}
