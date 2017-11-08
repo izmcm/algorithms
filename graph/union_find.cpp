@@ -14,24 +14,25 @@ void init(int i){
 
 int find(int i){
 	if(id[i] == i) return i;
-	return id[i] = find(id[i]);
+	return id[i] = find(id[i]); // path compression
 }
 
 void unionSet(int a, int b){
 	a = find(a);
 	b = find(b);
 
-	if(a == b) return;
+	if(a == b) return; // if a and b are in the same set
 
 	// connecting smaller set in the larger set
 	if(size[a] > size[b]) swap(a, b);
-
+	
+	// put a (smaller) in the b (larger) set
 	id[a] = b;
 	size[b] += size[a];
 }
 
 int main(){
-	for(int i = 0; i < SizeNodes; i++)
+	for(int i = 0; i < SizeNodes; i++) // init all nodes
 		init(i);
 
 	unionSet(1, 3);
