@@ -1,6 +1,5 @@
 /*
 	Algoritmo para checar se um grafo é bipartido
-	~ imcm
 */
 
 #include <bits/stdc++.h>
