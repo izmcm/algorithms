@@ -1,6 +1,5 @@
 /*
 	Algoritmo para encontrar a menor distância entre dois pontos num grafo
-	~ imcm
 */
 #include <bits/stdc++.h>
 using namespace std;
