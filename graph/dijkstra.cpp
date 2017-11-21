@@ -1,3 +1,7 @@
+/*
+	Algoritmo para encontrar a menor distância entre dois pontos num grafo
+	~ imcm
+*/
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -6,30 +10,34 @@ using namespace std;
 
 typedef pair<int, int> ii;
 
+// pair<distância, vértice>
 vector<ii> graph[SizeNodes];
 int D[SizeNodes], visit[SizeNodes];
 
+// implementação de uma min_heap
 priority_queue<ii, vector<ii>, greater<ii> > min_heap;
 
 void dijkstra(int v){
-	D[v] = 0;
-	min_heap.push(ii(0, v)); // put initial node in min heap
-
+	D[v] = 0; // d(v, v) = 0
+	min_heap.push(ii(0, v));
+	
 	while(!min_heap.empty()){
 		ii now = min_heap.top();
 		min_heap.pop();
-
+		
+		// nó visitado
 		visit[now.second] = 1;
 		
-		// see all neighbors nodes
+		// olha todos os nós adjacentes
 		for(int i = 0; i < graph[now.second].size(); i++){
 			ii next = graph[now.second][i];
 
-			if(visit[next.second] == 0){ // unvisited node
-				if(D[next.second] > D[now.second] + next.first){ // if new distance is smaller than old
+			if(visit[next.second] == 0){ // caso o nó ainda não tenha sido visitado
+				// olha se a distância partindo de now.second é menor do que a distância anterior do array D[]
+				if(D[next.second] > D[now.second] + next.first){
 					D[next.second] = D[now.second] + next.first;
 				
-					min_heap.push(ii(D[next.second], next.second)); // put new node in min heap
+					min_heap.push(ii(D[next.second], next.second)); // coloca o nó na min_heap
 				}
 			}
 		}
@@ -38,11 +46,12 @@ void dijkstra(int v){
 
 
 int main(){
-  for(int i = 0; i < SizeNodes; i++) // init distance
+  for(int i = 0; i < SizeNodes; i++) // atribui infinito para todas as distâncias
   	D[i] = INF;
-
-  //dijkstra(initialNode);
-  //cout << D[arrivalNode] << endl;
+	
+  // chama dijkstra com o nó de saída e encontra a menor distância para qualquer nó do array D[]
+  // dijkstra(initialNode);
+  // cout << D[arrivalNode] << endl;
 
 return 0;
 }
