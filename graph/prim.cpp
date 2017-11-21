@@ -1,3 +1,8 @@
+/*
+	Algoritmo para criação de uma MST (Árvore Geradora de Custo Mínimo), ou seja,
+	garante a conexão de todos os nós do grafo com o menor custo de arestas
+	* implementação quase igual a dijkstra
+*/
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -6,6 +11,7 @@ using namespace std;
 
 typedef pair<int, int> ii;
 
+// pair<distância, vértice>
 vector<ii> graph[SizeNodes];
 int D[SizeNodes], visit[SizeNodes];
 
@@ -25,6 +31,7 @@ void prim(int v){
 			ii next = graph[now.second][i];
 
 			if(visit[next.second] == 0){
+				// verifica se a aresta [now.second-next.second] possui peso menor que a anteriormente armazenada
 				if(D[next.second] > next.first){
 					D[next.second] = next.first;
 				
@@ -37,10 +44,11 @@ void prim(int v){
 
 
 int main(){
-  for(int i = 0; i < SizeNodes; i++)
+  for(int i = 0; i < SizeNodes; i++) // atribui infinito para todos os nós
   	D[i] = INF;
-
-  //prim(root);
+	
+  // chama a função a partir do que será a raiz da árvore
+  // prim(root);
 
 return 0;
 }
