@@ -1,3 +1,8 @@
+/*
+	Algoritmo para checar se um grafo é bipartido
+	~ imcm
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -6,26 +11,27 @@ using namespace std;
 vector<int> graph[SizeNodes];
 int color[SizeNodes];
 
+// cores: 0 e 1
 bool check(int v, int c){
-	if(color[v] == -1){ // if v is a node without color
-		color[v] = c; // put a color in v
+	if(color[v] == -1){ 
+		color[v] = c; // caso um nó V não possua nenhuma cor, coloca-se uma cor em V
   
-    		// put another color in all neighbors nodes
+    		// e a cor contrária em todos os nós adjacentes, se for possivel
 		for(int i = 0; i < graph[v].size(); i++){
-			if(!check(graph[v][i], 1 - c)) return false; // if it's impossible
+			if(!check(graph[v][i], 1 - c)) return false; 
 		}
 	}
-
-	else if(color[v] != c) // if v is colored with another color
+	
+	// caso o nó V já tenha sido colorido, mas a sua cor é diferente da cor atual
+	else if(color[v] != c)
 		return false;
 	
-	// else
 	return true;
 }
 
 int main(){
   for(int i = 0; i < SizeNodes; i++)
-  	color[i] = -1;
+  	color[i] = -1; // todos os nós serão descoloridos
 	
   // bipartite
   graph[0].push_back(1);
