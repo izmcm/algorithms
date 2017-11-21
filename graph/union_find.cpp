@@ -1,3 +1,6 @@
+/*
+	Estrutura para manipulação de conjuntos disjuntos
+*/
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -7,32 +10,34 @@ using namespace std;
 vector<int> adj[SizeNodes];
 int id[SizeNodes], size[SizeNodes];
 
+// inicializa todos os nós
 void init(int i){
-	id[i] = i;
-	size[i] = 1;
+	id[i] = i; // id (pai) de i como sendo ele mesmo
+	size[i] = 1; // tamanho de i como sendo 1
 }
 
+// encontra o id (pai) do nó i
 int find(int i){
 	if(id[i] == i) return i;
 	return id[i] = find(id[i]); // path compression
 }
 
+// une os nós a e b no mesmo conjunto
 void unionSet(int a, int b){
 	a = find(a);
 	b = find(b);
 
-	if(a == b) return; // if a and b are in the same set
+	if(a == b) return; // verifica se já fazem parte do mesmo conjunto
 
-	// connect the smallest set in the larger set
+	// sempre conecta o menor conjunto na raiz do maior
 	if(size[a] > size[b]) swap(a, b);
 	
-	// put a (smaller) in the b (larger) set
 	id[a] = b;
-	size[b] += size[a];
+	size[b] += size[a]; // atualiza o tamanho
 }
 
 int main(){
-	for(int i = 0; i < SizeNodes; i++) // init all nodes
+	for(int i = 0; i < SizeNodes; i++) // inicialização
 		init(i);
 
 	unionSet(1, 3);
