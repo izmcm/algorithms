@@ -1,5 +1,8 @@
 /*
 	Algoritmo para encontrar a menor distância entre dois pontos num grafo
+	
+	Izabella Melo ~imcm
+	imcm@cin.ufpe.br
 */
 #include <bits/stdc++.h>
 using namespace std;
