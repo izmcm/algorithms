@@ -1,5 +1,8 @@
 /*
 	Algoritmo para checar se um grafo é bipartido
+	
+	Izabella Melo ~imcm
+	imcm@cin.ufpe.br
 */
 
 #include <bits/stdc++.h>
