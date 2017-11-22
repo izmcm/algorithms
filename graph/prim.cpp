@@ -2,6 +2,9 @@
 	Algoritmo para criação de uma MST (Árvore Geradora de Custo Mínimo), ou seja,
 	garante a conexão de todos os nós do grafo com o menor custo de arestas
 	* implementação quase igual a dijkstra
+	
+	Izabella Melo ~imcm
+	imcm@cin.ufpe.br
 */
 #include <bits/stdc++.h>
 using namespace std;
