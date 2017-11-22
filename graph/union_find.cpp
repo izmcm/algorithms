@@ -1,8 +1,8 @@
 /*
 	Estrutura de dados para manipulação de conjuntos disjuntos
 	
-	 Izabella Melo ~imcm
-	 imcm@cin.ufpe.br
+	Izabella Melo ~imcm
+	imcm@cin.ufpe.br
 */
 #include <bits/stdc++.h>
 using namespace std;
