@@ -25,7 +25,7 @@ void bfs(int v){
 		visit[now] = 1; // marca
 
 		// olha todos os nós adjacentes e coloca na fila os que ainda não foram visitados
-		for(int i = 0; i < adj[now]; i++){
+		for(int i = 0; i < adj[now].size(); i++){
 			int next = adj[now][i];
 
 			if(visit[next] == 0)
