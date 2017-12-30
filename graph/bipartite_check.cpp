@@ -8,10 +8,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define SizeNodes 10
+#define NODES 10
 
-vector<int> graph[SizeNodes];
-int color[SizeNodes];
+vector<int> graph[NODES];
+int color[NODES];
 
 // cores: 0 e 1
 bool check(int v, int c){
