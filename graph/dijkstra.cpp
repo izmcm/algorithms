@@ -7,14 +7,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define SizeNodes 10
+#define NODES 10
 #define INF 1e8
 
 typedef pair<int, int> ii;
 
 // pair<distância, vértice>
-vector<ii> graph[SizeNodes];
-int D[SizeNodes], visit[SizeNodes];
+vector<ii> graph[NODES];
+int D[NODES], visit[NODES];
 
 // implementação de uma min_heap
 priority_queue<ii, vector<ii>, greater<ii> > min_heap;
