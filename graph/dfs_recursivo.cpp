@@ -9,10 +9,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define SizeNodes 10
+#define NODES 10
 
-vector<int> adj[SizeNodes];
-int visit[SizeNodes];
+vector<int> adj[NODES];
+int visit[NODES];
 
 void DFS(int v){
   visit[v] = 1;
